@@ -10,3 +10,19 @@ License URI: LICENSE
 Text Domain: icon
 */
 
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    padding-bottom: calc(1rem + 30px);
+    position: relative;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 15px 0;
+}
