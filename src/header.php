@@ -34,9 +34,9 @@
             'fallback_cb'    => 'Bootstrap_NavWalker::fallback'
         ) );
         ?>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+        <form class="form-inline my-2 my-lg-0" method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+            <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search" name="s">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="searchsubmit" value="Buscar">Buscar</button>
         </form>
     </div>
 </nav>
