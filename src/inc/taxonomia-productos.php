@@ -3,7 +3,7 @@
 /* Añade la categoría Productos a Wordpress */
 
 //hook into the init action and call create_book_taxonomies when it fires
-add_action( 'init', 'crear_taxonomia_productos', 0 );
+//add_action( 'init', 'crear_taxonomia_productos', 0 );
  
 //create a custom taxonomy name it topics for your posts
  
@@ -19,7 +19,7 @@ function crear_taxonomia_productos() {
     'all_items' => __( 'Todos los productos' ),
     'parent_item' => __( 'Producto padre' ),
     'parent_item_colon' => __( 'Producto padre:' ),
-    'edit_item' => __( 'Editar producto' ), 
+    'edit_item' => __( 'Editar producto' ),
     'update_item' => __( 'Actualizar producto' ),
     'add_new_item' => __( 'Agregar nuevo producto' ),
     'new_item_name' => __( 'Nuevo producto' ),
@@ -75,8 +75,8 @@ function registros_productos() {
 		'label'                 => __( 'Producto', 'text_domain' ),
 		'description'           => __( 'Productos de la tienda', 'text_domain' ),
 		'labels'                => $labels,
-		'supports'              => array( 'title', 'editor', 'thumbnail', ),
-		'taxonomies'            => array( 'productos' ),
+		'supports'              => array( 'title', 'editor', 'thumbnail', 'page-attributes'),
+		'taxonomies'            => array(),
 		'hierarchical'          => true,
 		'public'                => true,
 		'show_ui'               => true,
