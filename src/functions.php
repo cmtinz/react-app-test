@@ -9,6 +9,9 @@ require get_template_directory() . '/inc/bootstrap-navwalker.php';
 /* Selector Regiones */
 require get_template_directory() . '/inc/selector-regiones.php';
 
+/* Slider Home */
+require get_template_directory() . '/inc/slider.php';
+
 /* Registrar Menús */
 function register_my_menus() {
 	register_nav_menus(
@@ -28,6 +31,8 @@ function icon_setup() {
 		'flex-width'  => true,
 		'flex-height' => true,
 	) );
+
+	add_image_size( 'desktop', 1366, 606, false );
 }
 
 /* Modifica el formato de números */
@@ -39,7 +44,6 @@ add_filter('number_format_i18n', 'formato_de_numeros');
 
 // Agrega soporte para Thumbnails
 add_theme_support( 'post-thumbnails' );
-
 add_action( 'after_setup_theme', 'icon_setup' );
 
 /* Enqueue scripts and styles */
