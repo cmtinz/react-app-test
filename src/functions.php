@@ -3,11 +3,11 @@
 /* Registra taxonomía Productos */
 require get_template_directory() . '/inc/taxonomia-productos.php';
 
-/* Registra taxonomía Cotizaciones */
-require get_template_directory() . '/inc/post-cotizaciones.php';
-
 /* Registra clase para formatear navbar según Bootstrap 4 */
 require get_template_directory() . '/inc/bootstrap-navwalker.php';
+
+/* Selector Regiones */
+require get_template_directory() . '/inc/selector-regiones.php';
 
 /* Registrar Menús */
 function register_my_menus() {
@@ -51,6 +51,10 @@ function icon_scripts() {
 	// wp_enqueue_script( 'icon-bootstrap', "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js", array('jquery'), false, true );
 	wp_enqueue_script( 'icon-bootstrap', get_stylesheet_directory_uri() . "/js/bootstrap.min.js", array('jquery'), false, true );
 	wp_enqueue_script( 'icon-scripts', get_stylesheet_directory_uri() . "/js/scripts.js", array('jquery'), false, true );
+	wp_register_script( 'selector-regiones', get_stylesheet_directory_uri() . "/js/selector-regiones.js", array() );
+	if (is_page( 'cotiza' )) {
+		wp_enqueue_script( 'selector-regiones');
+	}
 }
 add_action( 'wp_enqueue_scripts', 'icon_scripts' );
 ?>

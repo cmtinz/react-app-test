@@ -3,7 +3,7 @@
 /* Añade la categoría Productos a Wordpress */
 
 //hook into the init action and call create_book_taxonomies when it fires
-//add_action( 'init', 'crear_taxonomia_productos', 0 );
+// add_action( 'init', 'crear_taxonomia_productos', 0 );
  
 //create a custom taxonomy name it topics for your posts
  
@@ -13,7 +13,7 @@ function crear_taxonomia_productos() {
 //first do the translations part for GUI
  
   $labels = array(
-    'name' => _x( 'Productos', 'taxonomy general name' ),
+    'name' => _x( 'Motos', 'taxonomy general name' ),
     'singular_name' => _x( 'Producto', 'taxonomy singular name' ),
     'search_items' =>  __( 'Buscar productos' ),
     'all_items' => __( 'Todos los productos' ),
@@ -28,13 +28,15 @@ function crear_taxonomia_productos() {
  
 // Now register the taxonomy
  
-  register_taxonomy('productos', array('post'), array(
+  register_taxonomy('motos', array('productos'), array(
     'hierarchical' => true,
     'labels' => $labels,
     'show_ui' => true,
     'show_admin_column' => true,
-    'query_var' => true,
-    'rewrite' => array( 'slug' => 'producto' ),
+	'query_var' => true,
+	'rewrite' => array(
+		'slug' => 'motos',
+	)
   ));
  
 }
@@ -76,7 +78,7 @@ function registros_productos() {
 		'description'           => __( 'Productos de la tienda', 'text_domain' ),
 		'labels'                => $labels,
 		'supports'              => array( 'title', 'editor', 'thumbnail', 'page-attributes'),
-		'taxonomies'            => array(),
+		'taxonomies'            => array('motos'),
 		'hierarchical'          => true,
 		'public'                => true,
 		'show_ui'               => true,

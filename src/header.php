@@ -3,6 +3,7 @@
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title><?php echo get_the_title($post->ID)?></title>
 	<?php wp_head(); ?>
 </head>
 
