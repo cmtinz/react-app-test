@@ -86,7 +86,7 @@
             <?php endif; ?>
         </div>
         <div class="col-2 d-flex align-items-center justify-content-center">
-            <a class="btn btn-primary" href="#" role="button">Cotiza</a>
+            <a class="btn btn-primary" href=" <?php echo get_permalink( get_page_by_title( 'Cotiza' ) ) . '?producto=' . $name?>" role="button">Cotiza</a>
         </div>
     </div>
 </div>

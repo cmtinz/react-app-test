@@ -29,7 +29,7 @@ function agregar_modelos ( $tag, $unused ) {
     foreach ( $plugins as $plugin ) {
         if (count(get_children(array('post_parent' => $plugin->ID, 'post_type' => 'productos'))) == 0) {
             $tag['raw_values'][] = $plugin->post_title;
-            $tag['values'][] = $plugin->post_title;
+            $tag['values'][] = $plugin->post_name;
             $tag['labels'][] = $plugin->post_title;
         }
     }

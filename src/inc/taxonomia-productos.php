@@ -3,26 +3,26 @@
 /* Añade la categoría Productos a Wordpress */
 
 //hook into the init action and call create_book_taxonomies when it fires
-// add_action( 'init', 'crear_taxonomia_productos', 0 );
+add_action( 'init', 'crear_taxonomia_motos', 0 );
  
 //create a custom taxonomy name it topics for your posts
  
-function crear_taxonomia_productos() {
+function crear_taxonomia_motos() {
  
 // Add new taxonomy, make it hierarchical like categories
 //first do the translations part for GUI
  
   $labels = array(
     'name' => _x( 'Motos', 'taxonomy general name' ),
-    'singular_name' => _x( 'Producto', 'taxonomy singular name' ),
-    'search_items' =>  __( 'Buscar productos' ),
-    'all_items' => __( 'Todos los productos' ),
-    'parent_item' => __( 'Producto padre' ),
-    'parent_item_colon' => __( 'Producto padre:' ),
-    'edit_item' => __( 'Editar producto' ),
-    'update_item' => __( 'Actualizar producto' ),
-    'add_new_item' => __( 'Agregar nuevo producto' ),
-    'new_item_name' => __( 'Nuevo producto' ),
+    'singular_name' => _x( 'Categoría', 'taxonomy singular name' ),
+    'search_items' =>  __( 'Buscar categorías' ),
+    'all_items' => __( 'Todos las categorías' ),
+    'parent_item' => __( 'Categoría padre' ),
+    'parent_item_colon' => __( 'Categoría padre:' ),
+    'edit_item' => __( 'Editar categoría' ),
+    'update_item' => __( 'Actualizar categoría' ),
+    'add_new_item' => __( 'Agregar nueva categoria' ),
+    'new_item_name' => __( 'Nueva categoría' ),
     'menu_name' => __( 'Categorías' ),
   );
  
@@ -79,7 +79,7 @@ function registros_productos() {
 		'labels'                => $labels,
 		'supports'              => array( 'title', 'editor', 'thumbnail', 'page-attributes'),
 		'taxonomies'            => array('motos'),
-		'hierarchical'          => true,
+		'hierarchical'          => false,
 		'public'                => true,
 		'show_ui'               => true,
 		'show_in_menu'          => true,

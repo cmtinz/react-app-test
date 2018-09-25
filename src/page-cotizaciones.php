@@ -11,12 +11,7 @@
     <!-- ./Jumbotron -->
 
     <div class="container mt-4 mb-4">
-        <?php $hijos = get_children( array('post_parent' => get_the_ID(), 'post_type' => 'productos'));
-        if (count($hijos) > 0) : // Determina si el post tiene hijos?>
-            <?php get_template_part('grilla') // Llama la función para mostrar grilla de productos ?>
-        <?php else : ?>
-            <?php get_template_part('detalle-producto') // Llama la función para mostrar grilla de productos?>    
-        <?php endif; ?>
+    
     </div>
     <?php endwhile;
     else :
