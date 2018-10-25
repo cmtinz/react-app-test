@@ -10,20 +10,22 @@ License URI: LICENSE
 Text Domain: icon
 */
 
-html {
-    min-height: 100%;
-    height: unset;
-}
-
 body {
     min-height: 100vh;
-    padding-bottom: calc(1rem + 30px);
-    position: relative;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+body.admin-bar {
+    min-height: calc(100vh - 32px);
 }
 
 footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    padding: 15px 0;
+    padding: 1em 0;
+}
+
+@media screen and ( max-width: 782px ) {
+    body.admin-bar {
+        min-height: calc(100vh - 46px);
+    }
 }
