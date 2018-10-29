@@ -48,8 +48,8 @@ add_action( 'after_setup_theme', 'icon_setup' );
 
 /* Enqueue scripts and styles */
 function icon_scripts() {
-	wp_enqueue_style( 'icon-style', get_stylesheet_uri() );
-	wp_enqueue_style( 'icon-bootstrap', get_stylesheet_directory_uri() . "/css/bootstrap.css", array(), filemtime( get_template_directory() . '/css/bootstrap.css'));
+	// wp_enqueue_style( 'icon-style', get_stylesheet_uri() );
+	wp_enqueue_style( 'icon', get_stylesheet_directory_uri() . "/css/icon.css", array(), filemtime( get_template_directory() . '/css/icon.css'));
 	wp_deregister_script( 'jquery' );
     wp_register_script( 'jquery', "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js", array(), '3.3.1' );
 	// wp_enqueue_script( 'icon-bootstrap', "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js", array('jquery'), false, true );

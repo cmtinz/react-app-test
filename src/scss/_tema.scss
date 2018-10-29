@@ -1,0 +1,20 @@
+body {
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+body.admin-bar {
+    min-height: calc(100vh - 32px);
+}
+
+footer {
+    padding: 1em 0;
+    margin-top: 2em;
+}
+
+@media screen and ( max-width: 782px ) {
+    body.admin-bar {
+        min-height: calc(100vh - 46px);
+    }
+}
