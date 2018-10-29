@@ -59,6 +59,9 @@ function icon_scripts() {
 	if (is_page( 'cotiza' )) {
 		wp_enqueue_script( 'selector-regiones');
 	}
+	if (!is_page('contacto')) { // Impide que se incluya el CSS de CF7 fuera de la página de contacto
+		wp_dequeue_style('contact-form-7');
+	}
 }
 add_action( 'wp_enqueue_scripts', 'icon_scripts' );
 ?>

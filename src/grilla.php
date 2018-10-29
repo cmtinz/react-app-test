@@ -20,7 +20,7 @@
                     <?php echo $hijo->post_title ?>
                 </h5>
                 <p class="card-text">
-                    <?php echo get_the_excerpt( $hijo->ID ) ?>
+                    <?php /* echo get_the_excerpt( $hijo->ID ) */ ?>
                 </p>
                 <a href="<?php the_permalink( $hijo->ID )?>" class="btn btn-primary">Ver más</a>
             </div>

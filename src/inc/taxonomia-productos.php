@@ -3,7 +3,7 @@
 /* Añade la categoría Productos a Wordpress */
 
 //hook into the init action and call create_book_taxonomies when it fires
-add_action( 'init', 'crear_taxonomia_motos', 0 );
+/* add_action( 'init', 'crear_taxonomia_motos', 0 ); */
  
 //create a custom taxonomy name it topics for your posts
  
@@ -91,6 +91,7 @@ function registros_productos() {
 		'exclude_from_search'   => false,
 		'publicly_queryable'    => true,
 		'capability_type'       => 'page',
+		'show_in_rest' => true
 	);
 	register_post_type( 'productos', $args );
 

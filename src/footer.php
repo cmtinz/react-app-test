@@ -5,9 +5,9 @@
             <div class="col-auto">
                 <div class="media">
                     <img class="mr-3" src="<?php echo get_template_directory_uri()?>/img/logo.svg" alt="Generic placeholder image">
-                    <div class="media-body">
-                        <h5 class="mt-0">Misano</h5>
-                        Misano está aquí.
+                    <div class="media-body align-self-center">
+                        <h5 class="mt-0">CDO</h5>
+                        Corredores de Seguros
                     </div>
                 </div>
             </div>

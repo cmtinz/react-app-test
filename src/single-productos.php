@@ -1,4 +1,5 @@
 <?php get_header()?>
+
 <main>
     <?php if ( have_posts() ) : while ( have_posts() ) : the_post();?>
 
@@ -15,7 +16,7 @@
         if (count($hijos) > 0) : // Determina si el post tiene hijos?>
             <?php get_template_part('grilla') // Llama la función para mostrar grilla de productos ?>
         <?php else : ?>
-            <?php get_template_part('detalle-producto') // Llama la función para mostrar grilla de productos?>    
+            <?php the_content()?>
         <?php endif; ?>
     </div>
     <?php endwhile;
