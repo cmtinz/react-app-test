@@ -13,6 +13,8 @@ footer {
     margin-top: 2em;
 }
 
+// Media
+
 @media screen and ( max-width: 782px ) {
     body.admin-bar {
         min-height: calc(100vh - 46px);

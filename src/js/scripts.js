@@ -9,7 +9,7 @@ if (document.querySelector(".wpcf7-form #producto")) {
     })
 }
 if (document.getElementsByClassName('wpcf7-form')) {
-    document.getElementsByClassName('wpcf7')[0].addEventListener('wpcf7submit', function (event) {
+    document.getElementsByClassName('wpcf7')[0].addEventListener('wpcf7mailsent', function (event) {
         $(".wpcf7 .form-group").hide(250)
     }, false);
 }

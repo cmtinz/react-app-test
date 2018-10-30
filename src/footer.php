@@ -6,7 +6,7 @@
                 <div class="media">
                     <img class="mr-3" src="<?php echo get_template_directory_uri()?>/img/logo.svg" alt="Generic placeholder image">
                     <div class="media-body align-self-center">
-                        <h5 class="mt-0">CDO</h5>
+                        <h5 class="mt-0">CGO</h5>
                         Corredores de Seguros
                     </div>
                 </div>
