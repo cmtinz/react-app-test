@@ -28,7 +28,7 @@
         wp_nav_menu( array(
             'theme_location' => 'header-menu',
             'menu_id'        => 'primary-menu',
-            'depth' => 2,
+            'depth' => 3,
             'container' => false,
             'menu_class'     => 'navbar-nav mr-auto',
             'walker'         => new Bootstrap_NavWalker(),
