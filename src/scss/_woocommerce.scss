@@ -1,0 +1,14 @@
+.woocommerce .form-row {
+    display: block;
+}
+
+.woocommerce form .form-row input.input-text, .woocommerce form .form-row textarea {
+    border-radius: $input-border-radius;
+    border-style: solid;
+    border-width: 1px;
+    padding: $input-padding-y $input-padding-x;
+}
+
+#ship-to-different-address label {
+    margin-bottom: unset;
+}

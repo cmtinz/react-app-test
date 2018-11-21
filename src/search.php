@@ -7,7 +7,10 @@
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
             <h1 class="display-4">Búsqueda</h1>
-            <p class="lead busqueda-termino"><?php echo get_search_query(); ?></p>
+            <ol class="breadcrumb pl-0 pr-0">
+                <li class="breadcrumb-item"><a href="<?php echo get_home_url()?>">Inicio</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Búsqueda: <span class="font-italic"><?php echo get_search_query()?></span></li>
+            </ol>
         </div>
     </div>
     <!-- ./Jumbotron -->

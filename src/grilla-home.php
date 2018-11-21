@@ -1,6 +1,6 @@
 <?php global $hijos?>
 
-<div class="card-deck">
+<div class="row">
 <?php foreach($hijos as $hijo) : ?>
     <?php
     if ( has_post_thumbnail( $hijo->ID ) ) :
@@ -11,7 +11,7 @@
     endif;
     $sub_hijos = get_children(array('post_parent' => $hijo->ID));
     ?>
-    <!-- <div class="card-group"> -->
+    <div class="col-lg-4">
         <div class="card mb-6">
             <a href="<?php the_permalink( $hijo->ID )?>">
                 <img class="card-img-top" src="<?php echo $imagen ?>" alt="Card image cap">
@@ -23,19 +23,19 @@
                 <p class="card-text">
                     <?php /* echo get_the_excerpt( $hijo->ID ) */ ?>
                 </p>
+                <pre style="display: none">
+                    <?php print_r($hijo) ?>
+                </pre>
                 <a href="<?php the_permalink( $hijo->ID )?>" class="btn btn-primary">Ver más</a>
+            </div>
                 <?php if (!empty($sub_hijos)) : ?>
                     <div class="list-group list-group-flush mt-3">
                         <?php foreach($sub_hijos as $sub_hijo) :?>
-                        <pre style="display: none">
-                            <?php print_r($sub_hijo) ?>
-                        </pre>
                         <a href="<?php the_permalink( $sub_hijo->ID )?>" class="list-group-item"><?php echo $sub_hijo->post_title ?></a>
                         <?php endforeach?>
                     </div>
                 <?php endif?>
-            </div>
         </div>
-    <!-- </div> -->
+    </div>
     <?php endforeach ?>
 </div>

@@ -4,7 +4,7 @@
     <!-- Jumbotron -->
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
-            <h1 class="display-4"><?php single_cat_title();?></h1>
+            <h1 class="display-4"><?php the_archive_title('', '')?></h1>
         </div>
     </div>
     <!-- ./Jumbotron -->

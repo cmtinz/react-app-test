@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <title>Prueba Nuevo Menú</title>
+    <style>
+        .icon-header {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            align-items: center;
+            position: relative;
+        }
+
+        .icon-nav-permanente {
+            justify-self: end;
+            display: flex;
+        }
+
+        .icon-boton-menu {
+            display: none;
+        }
+
+        .icon-menu {
+            display: flex;
+            padding-left: 0;
+            margin-bottom: 0;
+            align-items: center;
+        }
+
+        .icon-menu>li {
+            list-style-type: none;
+        }
+
+        .icon-menu>li+li {
+            margin-left: 1rem;
+        }
+
+        .icon-boton-menu {
+            margin-left: 1rem;
+        }
+
+        .icon-nav-colapsable {
+            grid-column: 1 / -1;
+        }
+
+        @keyframes icon-mm-toggle {
+            from {
+                opacity: 0;
+                transform: translateY(-10%);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .icon-mm {
+            display: none;
+            background: gray;
+        }
+        
+        .icon-mm-mostrar {
+            display: block;
+            position: absolute;
+            width: 100%;
+            padding: .5rem;
+            margin-top: 1rem;
+            left: 0;
+            right: 0;
+            top: 100%;
+            animation-name: icon-mm-toggle;
+            animation-duration: 0.1s;
+            animation-timing-function: ease-in-out;
+            animation-direction: alternate;
+        }
+
+        @media screen and (max-width: 720px) {
+            .icon-boton-menu {
+                display: unset;
+            }
+
+            .icon-nav-colapsable > .icon-menu {
+                flex-direction: column;
+                align-items: start;
+            }
+            
+            .icon-nav-colapsable > .icon-menu > li{
+                margin-left: 0;
+                margin-top: 0.5rem
+            }
+
+            .icon-nav-colapsable {
+                display: none;
+            }
+
+            .icon-nav-colapsable-show {
+                display: unset
+            }
+
+            .icon-mm-mostrar {
+                position: static;
+            }
+        }
+
+        @media screen and (max-width: 540px) {
+            .icon-nav-permanente {
+                grid-column: 1 / -1;
+                justify-self: stretch;
+            }
+            .icon-boton-menu {
+                margin-left: auto
+            }
+        }
+
+    </style>
+    <script>
+        function getParents(item) {
+            var parents = []
+            while (item.parentElement != null) {
+                item = item.parentElement
+                parents.push(item)
+            }
+            return parents
+        }
+
+        function parentWithClass(item, clss) {
+            return getParents(item).filter(item => {
+                return item.classList.contains(clss)
+            })[0]
+        }
+
+        function toggleMenu(menu) {
+            if (document.querySelector('.icon-mm-mostrar')) {
+                if (menu.classList.contains('icon-mm-mostrar')) { 
+                    menu.classList.remove('icon-mm-mostrar')
+                } else {
+                    document.querySelector('.icon-mm-mostrar').classList.remove('icon-mm-mostrar')
+                    menu.classList.add('icon-mm-mostrar')
+                }
+            } else {
+                menu.classList.add('icon-mm-mostrar')
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+
+            document.querySelectorAll('.icon-mm').forEach(item => {
+                item.parentElement.addEventListener('click', event => {
+                    if (event.target != event.currentTarget) return
+                    toggleMenu(event.target.querySelector('.icon-mm'))
+                })
+            })
+
+            document.addEventListener('click', event => {
+                // Verificar que target no sea icon-mm ni parent inmediato
+                if (parentWithClass(event.target, 'icon-mm-mostrar')) return
+                if (event.target.classList.contains('icon-menu-item') && event.target.querySelector('.icon-mm')) return
+                if (document.querySelector('.icon-mm-mostrar')) toggleMenu(document.querySelector('.icon-mm-mostrar'))
+            })
+
+            document.querySelector('.icon-boton-menu').addEventListener('click', e => {
+                document.querySelector('.icon-nav-colapsable').classList.toggle('icon-nav-colapsable-show')
+            })
+
+        })
+    </script>
+</head>
+
+<body>
+
+    <div class="bg-light py-3">
+        <header class="icon-header container">
+            <div class="icon-brand">
+                <h1>Marca</h1>
+            </div>
+            <nav class="icon-nav-permanente">
+                <ul class="icon-menu">
+                    <li>Item 1</li>
+                    <li>Item 2</li>
+                    <li>Item 3</li>
+                    <li>Item 4</li>
+                </ul>
+                <button class="icon-boton-menu">Menú</button>
+            </nav>
+            <nav class="icon-nav-colapsable">
+                <ul class="icon-menu">
+                    <li class="icon-menu-item">Item 1
+                        <div class="icon-mm">
+                            <ul>
+                                <li><a href="#">Item 1</a></li>
+                                <li><a href="#">Item 2</a></li>
+                                <li><a href="#">Item 3</a></li>
+                                <li><a href="#">Item 4</a></li>
+                                <li><a href="#">Item 5</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="icon-menu-item">Item 2
+                        <div class="icon-mm">
+                            <ul>
+                                <li><a href="#">Item 6</a></li>
+                                <li><a href="#">Item 7</a></li>
+                                <li><a href="#">Item 8</a></li>
+                                <li><a href="#">Item 9</a></li>
+                                <li><a href="#">Item 10</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="icon-menu-item">Item 3</li>
+                    <li class="icon-menu-item">Item 4</li>
+                </ul>
+            </nav>
+        </header>
+    </div>
+
+    <main class="container mt-4">
+        <div>Elemento 1</div>
+        <div>Elemento 2</div>
+        <div>Elemento 3</div>
+        <div>Elemento 4</div>
+        <div>Elemento 5</div>
+    </main>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
