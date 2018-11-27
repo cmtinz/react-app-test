@@ -1,0 +1,11 @@
+{
+ "/node_modules/.bin/acorn": "upload",
+ "/node_modules/.bin/cleancss": "upload",
+ "/node_modules/.bin/jade": "upload",
+ "/node_modules/.bin/mime": "upload",
+ "/node_modules/.bin/mkdirp": "upload",
+ "/node_modules/.bin/semver": "upload",
+ "/node_modules/.bin/uglifyjs": "upload",
+ "/node_modules/transformers/node_modules/.bin/uglifyjs": "upload",
+ "/node_modules/with/node_modules/.bin/acorn": "upload"
+}
