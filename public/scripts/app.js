@@ -24,24 +24,31 @@ class Search extends React.Component{
 }
 
 class PostList extends React.Component{
+    constructor(props) {
+        super(props);
+        this.state = {data: []}
+    }
     render() {
         return (
             <ul className="posts">
-                <Post name="Post Name 1" description="Post Description"/>
-                <Post name="Post Name 2" description="Post Description"/>
-                <Post name="Post Name 3" description="Post Description"/>
+                {this.state.data.map(data => <Post key={data.post_id} name={data.post_name} description={data.post_description}/>)}
             </ul>
         )
     }
+    componentDidMount() {
+        fetch('/posts')
+          .then(response => response.json())
+          .then(response => this.setState({data: response}));
+      }
 }
 
 class Post extends React.Component{
     render() {
         return (
-            <li>
+            <li key={this.props.post_id}>
                 <span>{this.props.name}</span>
                 <span>{this.props.description}</span>
-                <button>Eliminar</button>
+                <button >Eliminar</button>
             </li>
         )
     }
@@ -50,13 +57,13 @@ class Post extends React.Component{
 class NewPost extends React.Component{
     render() {
         return (
-            <div className="newPost">
+            <div className="new-post">
                 <form action="">
                     <label htmlFor="new-name">Nombre</label>
                     <input type="text" name="name" placeholder="Nombre" id="new-name"/>
                     <label htmlFor="new-description">Descripción</label>
                     <input type="text" name="description" placeholder="Descripción" id="new-description"/>
-                    <input type="submit" value="Buscar"/>
+                    <input type="submit" value="Crear"/>
                 </form>
             </div>
         )

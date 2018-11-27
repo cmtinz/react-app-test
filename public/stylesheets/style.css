@@ -1,8 +1,57 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  min-height: calc(100vh - 116px);
+  display: grid;
+  grid-template-rows: auto 1fr;
 }
 
 a {
   color: #00B7FF;
+}
+
+.app {
+	display: grid;
+	grid-template-rows: auto 1fr auto;
+	height: 100%;
+	align-items: start;
+}
+
+.search form {
+  display: flex;
+  justify-content: end;
+  border-bottom: 1px solid lightgray;
+  padding-bottom: .25rem;
+}
+
+.search form > * + * {
+	margin-left: .5rem;
+}
+
+.posts {
+  display: grid;
+  grid-gap: .25rem;
+  padding: 0;
+}
+
+.posts li {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 1fr 4fr auto;
+  grid-gap: 1rem;
+  padding: .25rem;
+}
+
+.posts li:hover {
+  background: lightgrey;
+}
+
+.new-post form {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+.new-post form>*+* {
+  margin-left: .5rem
 }
