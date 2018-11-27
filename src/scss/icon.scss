@@ -5,6 +5,9 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 
+ // Sobreescritura de variables
+ $font-family-sans-serif: Esphimere;
+
  // Requerido
  @import "node_modules/bootstrap/scss/functions";
  @import "node_modules/bootstrap/scss/variables";
@@ -47,4 +50,5 @@
 // Específicos del tema
 @import "src/scss/tema";
 @import "src/scss/contacto";
-@import "src/scss/woocommerce"
+@import "src/scss/woocommerce";
+@import "src/scss/fonts"

@@ -10,7 +10,7 @@
     </div>
     <!-- ./Jumbotron -->
 
-    <div class="container">
+    <div <?php post_class(array('container', 'mt-4'))?>>
         <?php the_content();?>
     </div>
     <?php endwhile;

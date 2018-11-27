@@ -42,6 +42,10 @@
             margin-left: 1rem;
         }
 
+        .icon-menu-item-active {
+            background: red;
+        }
+
         .icon-boton-menu {
             margin-left: 1rem;
         }
@@ -62,12 +66,8 @@
         }
 
         .icon-mm {
-            display: none;
+            visibility: collapse;
             background: gray;
-        }
-        
-        .icon-mm-mostrar {
-            display: block;
             position: absolute;
             width: 100%;
             padding: .5rem;
@@ -75,10 +75,19 @@
             left: 0;
             right: 0;
             top: 100%;
-            animation-name: icon-mm-toggle;
+            transition: all .1s;
+            opacity: 0;
+            transform: translateY(-10%);
+        }
+        
+        .icon-mm-mostrar {
+            visibility: visible;
+            opacity: 1;
+            transform: translateY(0);
+            /* animation-name: icon-mm-toggle;
             animation-duration: 0.1s;
             animation-timing-function: ease-in-out;
-            animation-direction: alternate;
+            animation-direction: alternate; */
         }
 
         @media screen and (max-width: 720px) {
@@ -105,7 +114,8 @@
             }
 
             .icon-mm-mostrar {
-                position: static;
+                position: relative;
+                top: unset;
             }
         }
 
@@ -140,12 +150,16 @@
             if (document.querySelector('.icon-mm-mostrar')) {
                 if (menu.classList.contains('icon-mm-mostrar')) { 
                     menu.classList.remove('icon-mm-mostrar')
+                    menu.parentElement.classList.remove('icon-menu-item-active')
                 } else {
+                    document.querySelector('.icon-mm-mostrar').parentElement.classList.remove('icon-menu-item-active')
                     document.querySelector('.icon-mm-mostrar').classList.remove('icon-mm-mostrar')
                     menu.classList.add('icon-mm-mostrar')
+                    menu.parentElement.classList.add('icon-menu-item-active')
                 }
             } else {
                 menu.classList.add('icon-mm-mostrar')
+                menu.parentElement.classList.add('icon-menu-item-active')
             }
         }
 

@@ -21,6 +21,12 @@ gulp.task('php', function (){
     .pipe(gulp.dest('build'))
 })
 
+// Fonts
+gulp.task('fonts', function (){
+    return gulp.src('src/fonts/*.otf')
+    .pipe(gulp.dest('build/fonts'))
+})
+
 // Move the javascript files into our /src/js folder
 gulp.task('js', function() {
     return gulp.src(['node_modules/bootstrap/dist/js/bootstrap.min.*', 'src/js/*.js'])
@@ -29,7 +35,7 @@ gulp.task('js', function() {
 });
 
 gulp.task('img', function () {
-    return gulp.src(['src/img/**/*.svg'])
+    return gulp.src(['src/img/**/*.svg', 'src/img/**/*.png', 'src/img/**/*.jpg'])
     .pipe(gulp.dest('build/img'))
 })
 
@@ -50,7 +56,8 @@ gulp.task('watch', ['default'], function () {
     gulp.watch('src/**/*.php', ['php'])
     gulp.watch('src/js/*.js', ['js'])
     gulp.watch('src/img/**.*', ['img'])
+    gulp.watch('src/fonts/**.*', ['fonts'])
 })
 
 
-gulp.task('default', ['css','php', 'sass', 'js', 'img']);
+gulp.task('default', ['css','php', 'sass', 'js', 'img', 'fonts']);

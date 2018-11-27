@@ -1,3 +1,5 @@
+/* Body */
+
 body {
     min-height: 100vh;
     display: grid;
@@ -8,9 +10,43 @@ body.admin-bar {
     min-height: calc(100vh - 32px);
 }
 
+.custom-logo {
+    width: 100px;
+    padding: .5rem .5rem .5rem 0rem;
+}
+
+// Footer
 footer {
     padding: 1em 0;
     margin-top: 2em;
+}
+
+.logo-footer {
+    width: 100px;
+    height: 100px;
+    object-fit: scale-down;
+}
+
+// Home
+.jumbotron-h1 {
+    font-size: 2rem;
+}
+
+.home-jumbotron {
+    min-height: 400px;
+    @extend .jumbotron;
+    @extend .jumbotron-fluid;
+    @extend .d-flex;
+    @extend .align-items-center;
+}
+
+.col-seguro {
+    @extend .col-lg-4;
+}
+
+.col-seguro + .col-seguro {
+    @extend .mt-4;
+    @extend .mt-lg-0;
 }
 
 // Media

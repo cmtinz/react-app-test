@@ -25,13 +25,14 @@
     </div>
     <!-- ./Jumbotron -->
 
-    <div class="container mt-4 mb-4">
+    <div <?php post_class(array('container', 'my-4'))?>>
         <?php $hijos = get_children( array('post_parent' => get_the_ID(), 'post_type' => 'productos'));
         if (count($hijos) > 0) : // Determina si el post tiene hijos?>
+            <?php the_content()?>
             <?php get_template_part('grilla') // Llama la función para mostrar grilla de productos ?>
         <?php else : ?>
             <?php the_content()?>
-            <a class="btn btn-primary" href="<?php echo get_site_url() . "/contacto". '?id=' . get_the_ID()?>" role="button">Cotizar</a>
+            <a class="btn btn-primary mt-4" href="<?php echo get_site_url() . "/contacto". '?id=' . get_the_ID()?>" role="button">Cotizar</a>
         <?php endif; ?>
     </div>
     <?php endwhile;
