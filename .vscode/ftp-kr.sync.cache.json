@@ -16,9 +16,9 @@
       "bin": {},
       "db.js": {
         "type": "-",
-        "size": 272,
+        "size": 167,
         "lmtime": 0,
-        "modified": true
+        "modified": false
       },
       "node_modules": {},
       "package-lock.json": {
@@ -29,9 +29,9 @@
       },
       "package.json": {
         "type": "-",
-        "size": 352,
+        "size": 322,
         "lmtime": 0,
-        "modified": true
+        "modified": false
       },
       "public": {},
       "routes": {},
@@ -71,7 +71,11 @@
               "acorn": {
                 "type": "-",
                 "size": 2623,
+<<<<<<< HEAD
                 "lmtime": 1451903472000,
+=======
+                "lmtime": 1451903473000,
+>>>>>>> d8a992a622d3b4db93ba11d821aa22af7c7db252
                 "modified": false
               },
               "cleancss": {
@@ -95,13 +99,13 @@
               "mkdirp": {
                 "type": "-",
                 "size": 731,
-                "lmtime": 1419626840000,
+                "lmtime": 1419626841000,
                 "modified": false
               },
               "semver": {
                 "type": "-",
                 "size": 4092,
-                "lmtime": 1413420140000,
+                "lmtime": 1413420141000,
                 "modified": false
               },
               "uglifyjs": {
@@ -742,8 +746,8 @@
               },
               "package.json": {
                 "type": "-",
-                "size": 2579,
-                "lmtime": 1543203786000,
+                "size": 2640,
+                "lmtime": 1542902355000,
                 "modified": false
               }
             },
@@ -4677,7 +4681,7 @@
                   "uglifyjs": {
                     "type": "-",
                     "size": 11124,
-                    "lmtime": 1360084298000,
+                    "lmtime": 1360084299000,
                     "modified": false
                   }
                 },
@@ -5723,7 +5727,7 @@
                   "acorn": {
                     "type": "-",
                     "size": 1746,
-                    "lmtime": 1432729042000,
+                    "lmtime": 1432729043000,
                     "modified": false
                   }
                 },
@@ -7072,8 +7076,8 @@
           },
           "package.json": {
             "type": "-",
-            "size": 352,
-            "lmtime": 1543203788000,
+            "size": 322,
+            "lmtime": 1542904896000,
             "modified": false
           },
           "public": {
@@ -7097,8 +7101,8 @@
             },
             "posts.js": {
               "type": "-",
-              "size": 1530,
-              "lmtime": 1543208652000,
+              "size": 537,
+              "lmtime": 1543001260000,
               "modified": false
             },
             "users.1.js": {
@@ -7132,74 +7136,6 @@
               "size": 125,
               "lmtime": 1542901919000,
               "modified": false
-            }
-          },
-          "react-backend": {
-            "app.js": {
-              "type": "-",
-              "size": 1075,
-              "lmtime": 1543262350000,
-              "modified": false
-            },
-            "bin": {
-              "www": {
-                "type": "-",
-                "size": 1599,
-                "lmtime": 1543262350000,
-                "modified": false
-              }
-            },
-            "package.json": {
-              "type": "-",
-              "size": 301,
-              "lmtime": 1543262350000,
-              "modified": false
-            },
-            "public": {
-              "images": {},
-              "javascripts": {},
-              "stylesheets": {
-                "style.css": {
-                  "type": "-",
-                  "size": 111,
-                  "lmtime": 1543262350000,
-                  "modified": false
-                }
-              }
-            },
-            "routes": {
-              "index.js": {
-                "type": "-",
-                "size": 205,
-                "lmtime": 1543262350000,
-                "modified": false
-              },
-              "users.js": {
-                "type": "-",
-                "size": 203,
-                "lmtime": 1543262350000,
-                "modified": false
-              }
-            },
-            "views": {
-              "error.jade": {
-                "type": "-",
-                "size": 84,
-                "lmtime": 1543262350000,
-                "modified": false
-              },
-              "index.jade": {
-                "type": "-",
-                "size": 66,
-                "lmtime": 1543262350000,
-                "modified": false
-              },
-              "layout.jade": {
-                "type": "-",
-                "size": 125,
-                "lmtime": 1543262350000,
-                "modified": false
-              }
             }
           }
         }
