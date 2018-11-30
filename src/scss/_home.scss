@@ -1,0 +1,67 @@
+// Home
+.jumbotron-h1 {
+    font-size: 2rem;
+}
+
+.home-jumbotron {
+	height: 400px;
+	background-color: #2680be;
+	display: grid;
+	grid-template-columns: 1fr 380px 760px 1fr;
+    align-items: center;
+
+    @media screen and (max-width: 1139px) {
+        grid-template-columns: 1fr 320px 640px 1fr;
+    }
+    
+    @media screen and (max-width: 959px) {
+        grid-template-columns: 1fr 480px 240px 1fr;
+    }
+
+    .mensaje-home {
+        grid-column-start: 2;
+        
+        hr {
+            border-color: white;
+            width: 225px;
+            margin-left: 0;
+            margin-bottom: 1.25rem;
+        }
+    }
+
+    .imagen-home {
+        grid-column: 3 / 5;
+        justify-self: end;
+        height: 100%;
+        width: 100%;
+        background-image: url("../img/vista-aerea-santiago.jpg");
+        background-repeat: no-repeat;
+        background-position: left;
+        background-size: cover;
+    }
+}
+
+.col-seguro {
+    @extend .col-lg-4;
+
+    .card-img-top {
+        height: 240px;
+        object-fit: cover;
+    }
+
+}
+
+.col-seguro + .col-seguro {
+    @extend .mt-4;
+    @extend .mt-lg-0;
+}
+
+.ver-mas {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .card-title {
+        color: black;
+        margin: 0;
+    }
+}

@@ -15,7 +15,6 @@
         <a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>">
         <?php if (has_custom_logo()) {
             $custom_logo = wp_get_attachment_url(get_theme_mod( 'custom_logo' ));
-            //echo wp_get_attachment_image_src($custom_logo_id);
             echo "<img src='$custom_logo' class='custom-logo'>";
         } else {
             bloginfo( 'name' );
@@ -38,9 +37,11 @@
                 'fallback_cb'    => 'Bootstrap_NavWalker::fallback'
             ) );
             ?>
-            <form class="form-inline my-2 my-lg-0 ml-lg-3" method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>">
-                <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search" name="s">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="searchsubmit" value="Buscar">Buscar</button>
+            <form class="busqueda-header my-2 my-lg-0 ml-lg-3" method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+                <button class="my-2 my-sm-0" type="submit" id="searchsubmit" value="Buscar">
+                    <img src="<?php echo get_template_directory_uri()?>/img/buscar.svg" class="img-fluid" width="13px" alt="Lupa buscar">
+                </button>
+                <input class="ml-sm-2" type="search" placeholder="Buscar" aria-label="Search" name="s">
             </form>
         </div>
     </div>

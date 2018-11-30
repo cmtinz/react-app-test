@@ -1,12 +1,17 @@
 var gulp = require('gulp')
 var sass = require('gulp-sass')
+var sourcemaps = require('gulp-sourcemaps')
+var require = require('browser-sync').create()
 
-// Compile sass into CSS & auto-inject into browsers
+// SASS
 gulp.task('sass', function() {
     return gulp.src(['src/scss/*.scss'])
-        .pipe(sass())
+        .pipe(sourcemaps.init())
+        .pipe(sass({
+            outputStyle: 'compressed',
+        }))
+        .pipe(sourcemaps.write('../maps'))
         .pipe(gulp.dest("build/css"))
-        // .pipe(browserSync.stream());
 });
 
 // CSS
@@ -41,14 +46,12 @@ gulp.task('img', function () {
 
 // Static Server + watching scss/html files
 gulp.task('serve', ['sass'], function() {
-
-    /* browserSync.init({
-        server: "./src"  
-    }); */
-
-    gulp.watch(['node_modules/bootstrap/scss/bootstrap.scss', 'src/scss/*.scss'], ['sass']);
-    /* gulp.watch("src/*.html").on('change', browserSync.reload); */
+    browserSync.init({
+        proxy: 'localhost:8888'
+    });
 });
+
+
 
 gulp.task('watch', ['default'], function () {
     gulp.watch('src/scss/*.scss', ['sass'])

@@ -15,10 +15,28 @@ body.admin-bar {
     padding: .5rem .5rem .5rem 0rem;
 }
 
+.busqueda-header {
+    border-bottom: 1px solid #4e4e4e;
+    
+    input {
+        background: transparent;
+        border: none;
+    }
+
+    button {
+        background: transparent;
+        border: none;
+    }
+}
+
 // Footer
 footer {
     padding: 1em 0;
     margin-top: 2em;
+
+    .footer-tel {
+        color: inherit;
+    }
 }
 
 .logo-footer {
@@ -27,27 +45,7 @@ footer {
     object-fit: scale-down;
 }
 
-// Home
-.jumbotron-h1 {
-    font-size: 2rem;
-}
 
-.home-jumbotron {
-    min-height: 400px;
-    @extend .jumbotron;
-    @extend .jumbotron-fluid;
-    @extend .d-flex;
-    @extend .align-items-center;
-}
-
-.col-seguro {
-    @extend .col-lg-4;
-}
-
-.col-seguro + .col-seguro {
-    @extend .mt-4;
-    @extend .mt-lg-0;
-}
 
 // Media
 

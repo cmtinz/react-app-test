@@ -3,16 +3,16 @@
 
     <!-- Jumbotron -->
     <div class="home-jumbotron">
-        <div class="container">
-            <h1 class="jumbotron-h1">A la hora de tomar un seguro, piense en CGO Corredores de Seguros,<br>para nosotros cada asegurado es parte de nuestra familia.</h1>
+        <div class="mensaje-home p-3">
+            <img src="<?php echo get_template_directory_uri()?>/img/logo-cgo-blanco.png" class="img-fluid" alt="Logo CGO Blanco">
+            <hr>
+            <p class="text-white">Cada asegurado es parte de nuestra <i>familia</i></p>
+        </div>
+        <div class="imagen-home">
+            <!-- <img src="<?php echo get_template_directory_uri()?>/img/vista-aerea-santiago.jpg" alt="Vista aérea Santiago"> -->
         </div>
     </div>
     <!-- ./Jumbotron -->
-
-    <!-- <?php echo do_shortcode( '[icon_slider]' ); ?>
-    <div class="container mt-4 mb-4">
-        <p>A la hora de tomar un seguro, piense en CDO Corredores de Seguros, para nosotros cada asegurado es parte de nuestra familia.</p>
-    </div> -->
 
     <!-- Grilla -->
     <div class="container mt-4 mb-4">
