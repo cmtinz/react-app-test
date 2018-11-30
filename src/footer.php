@@ -11,9 +11,11 @@
                         echo "<img src=" . get_template_directory_uri() . "/img/logo.svg' class='mr-3 logo-footer' alt=''>";
                     }?>
                     <div class="media-body align-self-center">
-                        San Francisco de Asís 150, of. 605,<br>
-                        Vitacura, Santiago.<br>
-                        Tel: <a class="footer-tel" href="tel:+5600000000">+56 X XXXX XXXX</a>
+                        <a href="https://www.google.com/maps/place/San+Francisco+de+Asís+150,+Vitacura,+Las+Condes,+Región+Metropolitana" class="footer-direccion">
+                            San Francisco de Asís 150, of. 605,<br>
+                            Vitacura, Santiago.<br>
+                        </a>
+                        Tel: <a class="footer-tel" href="tel:+56995344792">+56 9 9534 4792</a>
                     </div>
                 </div>
             </div>
@@ -29,5 +31,9 @@
     </div>
 </footer>
 <!-- ./Footer -->
+
+<!-- WP Footer -->
 <?php wp_footer(); ?>
+<!-- ./WP Footer -->
+
 </body>

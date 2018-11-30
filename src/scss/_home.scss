@@ -15,17 +15,33 @@
     }
     
     @media screen and (max-width: 959px) {
-        grid-template-columns: 1fr 480px 240px 1fr;
+        grid-template-columns: 1fr;
+        /* grid-template-columns: 1fr 480px 240px 1fr; */
     }
 
     .mensaje-home {
         grid-column-start: 2;
+
+        @media screen and (max-width: 959px) {
+            grid-column: 1 / 2;
+            grid-row: 1 / 2;
+            z-index: 2;
+            justify-self: start;
+            background: $blue;
+            border-radius: 0 10px 10px 0;
+        }
         
         hr {
             border-color: white;
             width: 225px;
             margin-left: 0;
             margin-bottom: 1.25rem;
+        }
+
+        p {
+            @media screen and (max-width: 539px) {
+                max-width: 60%;
+            }
         }
     }
 
@@ -38,6 +54,12 @@
         background-repeat: no-repeat;
         background-position: left;
         background-size: cover;
+
+        @media screen and (max-width: 959px) {
+            grid-column: 1 / 2;
+            grid-row: 1 / 2;
+            z-index: 1;
+        }
     }
 }
 

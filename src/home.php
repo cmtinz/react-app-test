@@ -18,7 +18,7 @@
     <div class="container mt-4 mb-4">
         <?php $hijos = get_children( array('post_type' => 'productos', 'order' => 'ASC'));
         if (count($hijos) > 0) : // Determina si el post tiene hijos?>
-            <?php get_template_part('grilla-home') // Llama la función para mostrar grilla de productos ?>
+            <?php get_template_part('parts/grilla', 'home') // Llama la función para mostrar grilla de productos ?>
         <?php endif; ?>
     </div>
     <!-- ./Grilla -->

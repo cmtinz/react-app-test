@@ -3,11 +3,9 @@
 if (document.querySelector(".wpcf7-form #producto")) {
     $.getJSON("/wp-json/wp/v2/productos?per_page=100", function (data) {
         data.forEach(item => {
-            if (item.parent != 0) {
-                var producto = item.title.rendered
-                var id = item.id
-                $('#producto').append(`<option value="${producto}" data-id="${id}">${producto}</option>`)
-            }
+            var producto = item.title.rendered
+            var id = item.id
+            $('#producto').append(`<option value="${producto}" data-id="${id}">${producto}</option>`)
         })
         if (window.location.search) {
             var search =  window.location.search.replace("?", "").split("=")
@@ -35,3 +33,13 @@ function seleccionarDataId (id) {
         }
     })
 }
+
+/* Mostrar Submenú de Seguros Generales */
+document.addEventListener('DOMContentLoaded', () => {
+    let subMenu = document.createElement('div')
+    subMenu.classList.add('dropdown-submenu')
+    subMenu.appendChild(document.getElementById('menu-item-41'))
+    subMenu.appendChild(document.querySelector("[aria-labelledby=navbar-dropdown-menu-link-41]"))
+    let menu = document.querySelector('[aria-labelledby=navbar-dropdown-menu-link-40]')
+    menu.prepend(subMenu)
+}) 

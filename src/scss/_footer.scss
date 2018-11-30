@@ -1,0 +1,17 @@
+// Footer
+body > footer {
+    padding: .5em 0;
+    margin-top: 2em;
+    line-height: 1.25;
+
+    .footer-tel, .footer-direccion {
+        color: inherit;
+    }
+}
+
+.logo-footer {
+    width: 100px;
+    height: 100px;
+    object-fit: scale-down;
+    padding: 0 0.5rem;
+}

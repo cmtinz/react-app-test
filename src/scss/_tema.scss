@@ -10,44 +10,14 @@ body.admin-bar {
     min-height: calc(100vh - 32px);
 }
 
-.custom-logo {
-    width: 100px;
-    padding: .5rem .5rem .5rem 0rem;
-}
-
-.busqueda-header {
-    border-bottom: 1px solid #4e4e4e;
-    
-    input {
-        background: transparent;
-        border: none;
-    }
-
-    button {
-        background: transparent;
-        border: none;
-    }
-}
-
-// Footer
-footer {
-    padding: 1em 0;
-    margin-top: 2em;
-
-    .footer-tel {
-        color: inherit;
-    }
-}
-
-.logo-footer {
-    width: 100px;
-    height: 100px;
-    object-fit: scale-down;
-}
-
-
-
 // Media
+
+// Interlineado párrafos
+.type-page, type-productos {
+    p {
+        line-height: 1.3;
+    }
+}
 
 @media screen and ( max-width: 782px ) {
     body.admin-bar {

@@ -136,3 +136,11 @@ div.wpcf7 .wpcf7-submit:disabled {
 .wpcf7-not-valid-tip {
     @extend .invalid-feedback;
 }
+
+#enviar {
+	background: url("../img/boton-cotizar.png");
+	color: transparent;
+	height: 54px;
+	width: 196px;
+	border: none;
+}
