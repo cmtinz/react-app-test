@@ -29,3 +29,14 @@
         object-fit: cover;
     }
 }
+
+.producto {
+    
+    a:first-of-type {
+        overflow: hidden;
+    }
+
+    img {
+        transform: scale(1.01);
+    }
+}

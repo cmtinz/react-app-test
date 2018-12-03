@@ -66,9 +66,14 @@
 .col-seguro {
     @extend .col-lg-4;
 
+    a:first-of-type {
+        overflow: hidden;
+    }
+
     .card-img-top {
         height: 240px;
         object-fit: cover;
+        transform: scale(1.01);
     }
 
 }

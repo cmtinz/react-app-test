@@ -3,12 +3,19 @@
 <div class="row">
 <?php foreach($hijos as $hijo) : ?>
     <?php
-    if ( has_post_thumbnail( $hijo->ID ) ) :
+    /* if ( has_post_thumbnail( $hijo->ID ) ) :
         $imagen_a = wp_get_attachment_image_src( get_post_thumbnail_id( $hijo->ID ), 'optional-size' );
         $imagen = $imagen_a[0];
     else :
         $imagen = get_template_directory_uri() . '/img/imagen.svg';
-    endif;
+    endif; */
+    ?>
+    <?php 
+    if( get_field('imagen_grilla', $hijo->ID) ) {
+        $imagen = get_field('imagen_grilla', $hijo->ID);
+    } else {
+        $imagen = get_template_directory_uri() . '/img/imagen.svg';
+    }
     ?>
     <div class="col-seguro">
         <div class="card mb-6">

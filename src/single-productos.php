@@ -11,9 +11,7 @@
             <!-- Contenido del Post -->
             <?php the_content()?>
             <!-- ./Contenido del Post -->
-            <!-- Grilla de Productos -->
             <?php get_template_part('parts/grilla') // Llama la función para mostrar grilla de productos ?>
-            <!-- ./Grilla de Productos -->
         <?php else : ?>
             <?php the_content()?>
             <?php if (get_the_ID() != 31) {
