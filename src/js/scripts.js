@@ -1,11 +1,12 @@
 /* Rellena los productos en el formulario de contacto */
 
 if (document.querySelector(".wpcf7-form #producto")) {
-    $.getJSON("/wp-json/wp/v2/productos?per_page=100", function (data) {
+    $.getJSON("/wp-json/wp/v2/productos?per_page=100&order=asc&orderby=menu_order", function (data) {
         data.forEach(item => {
             var producto = item.title.rendered
             var id = item.id
-            $('#producto').append(`<option value="${producto}" data-id="${id}">${producto}</option>`)
+            var productoMostrar = item.parent === 0 ? producto : "&nbsp;&nbsp;&nbsp;" +  producto
+            $('#producto').append(`<option value="${producto}" data-id="${id}">${productoMostrar}</option>`)
         })
         if (window.location.search) {
             var search =  window.location.search.replace("?", "").split("=")

@@ -2,8 +2,8 @@
 <footer class="bg-light text-secondary">
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-auto">
-                <div class="media">
+            <div class="col-xs-12">
+                <div class="media mr-2">
                     <?php if (has_custom_logo()) {
                         $custom_logo = wp_get_attachment_url(get_theme_mod( 'custom_logo' ));
                         echo "<img src='$custom_logo' class='mr-3 logo-footer'>";

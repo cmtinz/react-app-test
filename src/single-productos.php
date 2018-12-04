@@ -6,7 +6,10 @@
     <?php get_template_part('parts/jumbotron') ?>
 
     <div <?php post_class(array('container', 'my-4'))?>>
-        <?php $hijos = get_children( array('post_parent' => get_the_ID(), 'post_type' => 'productos'));
+        
+        <?php get_template_part('parts/breadcrumb-productos') // Llama la función para mostrar grilla de productos ?>
+
+        <?php $hijos = get_children( array('post_parent' => get_the_ID(), 'post_type' => 'productos', 'order' => "ASC", 'orderby' => 'menu_order'));
         if (count($hijos) > 0) : // Determina si el post tiene hijos?>
             <!-- Contenido del Post -->
             <?php the_content()?>
@@ -19,12 +22,10 @@
                 $link_cotizar = get_site_url() . "/cotizador". '?id=' . get_the_ID();
             } else {
                 $img_cotizar = get_template_directory_uri() . "/img/boton-simular.png";
-                $link_cotizar = get_site_url() . "/simulador";
+                $link_cotizar = get_site_url() . "/cotizador-asistencia-en-viaje";
                 
             }?>
-            <a class="boton-cotizar d-flex mt-4" href="<?php echo $link_cotizar?>" role="button">
-                <img src="<?php echo $img_cotizar?>" alt="Cotizar">
-            </a>
+            <a class="boton-cotizar d-flex mt-4" href="<?php echo $link_cotizar?>" role="button"></a>
         <?php endif; ?>
     </div>
     <?php endwhile;

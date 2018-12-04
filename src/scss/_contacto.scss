@@ -144,3 +144,11 @@ div.wpcf7 .wpcf7-submit:disabled {
 	width: 196px;
 	border: none;
 }
+
+#enviar:hover {
+    background: url("../img/boton-cotizar-hover.png");
+}
+
+#enviar:active {
+    background: url("../img/boton-cotizar-active.png");
+}

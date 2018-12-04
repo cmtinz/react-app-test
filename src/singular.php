@@ -5,6 +5,9 @@
     <?php get_template_part('parts/jumbotron') ?>
 
     <div <?php post_class(array('container', 'mt-4'))?>>
+
+        <?php get_template_part('parts/breadcrumb-singular') ?>
+        
         <!-- Contenido del Post -->
         <?php the_content();?>
         <!-- ./Contenido del Post -->

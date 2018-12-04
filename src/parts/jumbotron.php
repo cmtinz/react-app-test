@@ -1,7 +1,7 @@
 <!-- Jumbotron -->
 <div class="jumbotron-producto">
     <div class="texto">
-        <h1><?php the_title();?></h1>
+        <h1 class="jumbotron-titulo"><?php the_title();?></h1>
     </div>
     <?php
     if ( has_post_thumbnail() ) :
