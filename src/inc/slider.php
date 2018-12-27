@@ -5,41 +5,92 @@
 function registrar_slider($wp_customize) {
 
 	$wp_customize->add_section('slider_header', array(
-		'title' => 'Sliders Home',
-		'description' => 'Edita los sliders de la página de inicio',
+		'title' => 'Pie de página',
+		'description' => 'Edita los datos del pie de página',
 		'capability' => 'edit_theme_options',
 		'prority' => 30
 	));
-
-	for ($i = 1; $i <= 8; $i++) {
-		$wp_customize->add_setting("slider_" . $i  . "_img", array(
-			'type' => 'theme_mod',
-			'capability' => 'edit_theme_options',
-			'sanitize_callback' => 'absint',
-			'transport' => 'postMessage'
-		));
-	
-		$wp_customize->add_control(new WP_Customize_Media_Control($wp_customize, "slider_" . $i  . "_img", array(
-			'section' => 'slider_header',
-			'label' => "Imagen slider $i",
-			'mime_type' => 'image'
-		)));
 		
-		$wp_customize->add_setting( "slider_" . $i . "_link", array(
-			'type' => 'theme_mod',
-			'capability' => 'edit_theme_options',
-			'default' => '',
-			'transport' => 'postMessage',
-		  ) );
+	$wp_customize->add_setting( "footer_direccion", array(
+		'type' => 'theme_mod',
+		'capability' => 'edit_theme_options',
+		'default' => '',
+		'transport' => 'postMessage',
+		) );
+
+	$wp_customize->add_control( "footer_direccion", array(
+	'type' => 'text',
+	'section' => 'slider_header', // Required, core or custom.
+	'label' => __( "Dirección" )
+	) );
 	
-		  $wp_customize->add_control( "slider_" . $i . "_link", array(
-			'type' => 'url',
-			'section' => 'slider_header', // Required, core or custom.
-			'label' => __( "Vínculo slider $i" )
-		  ) );
-	}
+	$wp_customize->add_setting( "footer_direccion_url", array(
+		'type' => 'theme_mod',
+		'capability' => 'edit_theme_options',
+		'default' => '',
+		'transport' => 'postMessage',
+		) );
+
+	$wp_customize->add_control( "footer_direccion_url", array(
+	'type' => 'url',
+	'section' => 'slider_header', // Required, core or custom.
+	'label' => __( "Google Maps URL" )
+	) );
+	
+	$wp_customize->add_setting( "footer_telefono", array(
+		'type' => 'theme_mod',
+		'capability' => 'edit_theme_options',
+		'default' => '',
+		'transport' => 'postMessage',
+		) );
+
+	$wp_customize->add_control( "footer_telefono", array(
+	'type' => 'text',
+	'section' => 'slider_header', // Required, core or custom.
+	'label' => __( "Teléfono" )
+	) );
+	
+	$wp_customize->add_setting( "footer_instagram", array(
+		'type' => 'theme_mod',
+		'capability' => 'edit_theme_options',
+		'default' => '',
+		'transport' => 'postMessage',
+		) );
+
+	$wp_customize->add_control( "footer_instagram", array(
+	'type' => 'url',
+	'section' => 'slider_header', // Required, core or custom.
+	'label' => __( "URL Instagram" )
+	) );
+	
+	$wp_customize->add_setting( "footer_facebook", array(
+		'type' => 'theme_mod',
+		'capability' => 'edit_theme_options',
+		'default' => '',
+		'transport' => 'postMessage',
+		) );
+
+	$wp_customize->add_control( "footer_facebook", array(
+	'type' => 'url',
+	'section' => 'slider_header', // Required, core or custom.
+	'label' => __( "URL Facebook" )
+	) );
+	
+	$wp_customize->add_setting( "footer_linkedin", array(
+		'type' => 'theme_mod',
+		'capability' => 'edit_theme_options',
+		'default' => '',
+		'transport' => 'postMessage',
+		) );
+
+	$wp_customize->add_control( "footer_linkedin", array(
+	'type' => 'url',
+	'section' => 'slider_header', // Required, core or custom.
+	'label' => __( "URL LinkedIn" )
+	) );
 
 }
+
 add_action('customize_register', 'registrar_slider');
 
 

@@ -11,21 +11,29 @@
                         echo "<img src=" . get_template_directory_uri() . "/img/logo.svg' class='mr-3 logo-footer' alt=''>";
                     }?>
                     <div class="media-body align-self-center">
-                        <a href="https://www.google.com/maps/place/San+Francisco+de+Asís+150,+Vitacura,+Las+Condes,+Región+Metropolitana" class="footer-direccion">
-                            San Francisco de Asís 150, of. 605,<br>
-                            Vitacura, Santiago.<br>
+                        <a href="<?php echo get_theme_mod('footer_direccion_url') ?>" class="footer-direccion">
+                            <?php echo get_theme_mod('footer_direccion') ?><br>
                         </a>
-                        Tel: <a class="footer-tel" href="tel:+56995344792">+56 9 9534 4792</a>
+                        Tel: <a class="footer-tel" href="tel:<?php echo str_replace(' ', '', get_theme_mod('footer_telefono'))?>"><?php echo get_theme_mod('footer_telefono') ?></a>
                     </div>
                 </div>
             </div>
             <div class="col-xl-auto col-md-12 d-flex justify-content-center ml-auto mt-4 mt-xl-0">
-                <a href="#" class="d-flex align-items-center mr-4">
-                    <img src="<?php echo get_template_directory_uri()?>/img/logo-facebook.svg" class="img-fluid" width="36px" alt="Logo Facebook">
-                </a>
-                <a href="#" class="d-flex align-items-center">
-                    <img src="<?php echo get_template_directory_uri()?>/img/logo-instagram.svg" class="img-fluid" width="36px" alt="Logo Instagram">
-                </a>
+                <?php if (get_theme_mod('footer_facebook') != "") :?>
+                    <a href="<?php echo get_theme_mod('footer_facebook') ?>" class="d-flex align-items-center mr-4">
+                        <img src="<?php echo get_template_directory_uri()?>/img/logo-facebook.svg" class="img-fluid" width="36px" alt="Logo Facebook">
+                    </a>
+                <?php endif ?>
+                <?php if (get_theme_mod('footer_instagram') != "") :?>
+                    <a href="<?php echo get_theme_mod('footer_instagram') ?>" class="d-flex align-items-center">
+                        <img src="<?php echo get_template_directory_uri()?>/img/logo-instagram.svg" class="img-fluid" width="36px" alt="Logo Instagram">
+                    </a>
+                <?php endif ?>
+                <?php if (get_theme_mod('footer_linkedin') != "") :?>
+                    <a href="<?php echo get_theme_mod('footer_linkedin') ?>" class="d-flex align-items-center ml-4">
+                        <img src="<?php echo get_template_directory_uri()?>/img/logo-linkedin.svg" class="img-fluid" width="36px" alt="Logo LinkedIn">
+                    </a>
+                <?php endif ?>
             </div>
         </div>
     </div>

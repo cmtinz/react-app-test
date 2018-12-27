@@ -20,7 +20,6 @@ function register_my_menus() {
 	register_nav_menus(
 		array(
 			'header-menu' => __( 'Principal' ),
-			'footer-menu' => __( 'Footer' )
 			)
 		);
 }
