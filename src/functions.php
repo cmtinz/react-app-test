@@ -12,6 +12,9 @@ require get_template_directory() . '/inc/selector-regiones.php';
 /* Slider Home */
 require get_template_directory() . '/inc/slider.php';
 
+/* Registra tamaño de imagenes */
+require get_template_directory() . '/inc/tamano-imagenes.php';
+
 /* Registrar Menús */
 function register_my_menus() {
 	register_nav_menus(
