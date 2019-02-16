@@ -9,7 +9,7 @@ router.use(bodyParser.json())
 router.post('/search', async (req, res, next) => {
   try {
     const queryName = req.body.queryName
-    const rows = await db.query(`select * from post where post_name ilike '%${req.body.queryName}%'`)
+    const rows = await db.query(`select * from post where postName ilike '%${req.body.queryName}%'`)
     res.statusCode = 200;
     res.setHeader('Content-Type', 'application/json')
     res.json(rows.rows)
@@ -33,12 +33,12 @@ router.get('/', async (req, res, next) => {
 
 
 /* Insertar posts */
-// insert into posts (post_id, post_name, post_description) values (default, 'Post 2', 'Descripción');
+// insert into posts (postId, postName, postdescription) values (default, 'Post 2', 'Descripción');
 router.post('/', async (req, res, next) => {
   try {
     const postName = req.body.postName
     const postDescription = req.body.postDescription
-    const rows = await db.query(`insert into posts (post_id, post_name, post_description) values (default, '${postName}', '${postDescription}')`)
+    const rows = await db.query(`insert into posts (postId, postName, postDescription) values (default, '${postName}', '${postDescription}')`)
     res.statusCode = 200;
     res.setHeader('Content-Type', 'application/json')
     res.json(rows)
@@ -51,7 +51,7 @@ router.post('/', async (req, res, next) => {
 /* Eliminar posts */
 router.delete('/:id', async (req, res, next) => {
   try {
-    const rows = await db.query(`delete from posts where post_id = ${req.params.id}`)
+    const rows = await db.query(`delete from posts where postId = ${req.params.id}`)
     res.statusCode = 200;
     res.setHeader('Content-Type', 'application/json')
     res.json(rows)

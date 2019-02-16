@@ -31,7 +31,7 @@ class PostList extends React.Component{
     render() {
         return (
             <ul className="posts">
-                {this.state.data.map(data => <Post key={data.post_id} name={data.post_name} description={data.post_description}/>)}
+                {this.state.data.map(data => <Post key={data.postId} name={data.postName} description={data.postDescription}/>)}
             </ul>
         )
     }
