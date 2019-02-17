@@ -17,6 +17,10 @@ a {
 	align-items: start;
 }
 
+h1 {
+  margin-top: 0;
+}
+
 .search form {
   display: flex;
   justify-content: end;

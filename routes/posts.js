@@ -23,6 +23,7 @@ router.post('/search', async (req, res, next) => {
 router.get('/', async (req, res, next) => {
   try {
     const rows = await db.query('SELECT * FROM posts')
+    console.log(rows)
     res.statusCode = 200;
     res.setHeader('Content-Type', 'application/json')
     res.json(rows.rows)
