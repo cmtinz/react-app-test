@@ -11,4 +11,7 @@ services:
   postgres:
     image: postgres:9.6.8-alpine
     environment:
-      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: npr
+      POSTGRES_USER: npr-db-usr
+      POSTGRES_PASSWORD: npr-db-password
+      
