@@ -1,0 +1,17 @@
+version: '3'
+services:
+
+  postgres:
+    image: postgres:10.3-alpine
+    ports:
+      - '5432:5432'
+    network_mode: bridge
+    container_name: postgres
+
+    environment:
+      POSTGRES_DB: 'npr-db'
+      POSTGRES_USER: 'npr-db-usr'
+      POSTGRES_PASSWORD: 'npr-db-password'
+
+    volumes:
+      - ./initdb:/docker-entrypoint-initdb.d

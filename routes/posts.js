@@ -5,6 +5,10 @@ var bodyParser = require('body-parser')
 
 router.use(bodyParser.json())
 
+function caseSensitiveRows(row) {
+  return row.map(row => {return {postId: row.postid, postName: row.postname, postDescription: row.postdescription}})
+}
+
 /* Filtrar posts por nombre localmente */
 router.post('/search', async (req, res, next) => {
   try {
@@ -12,7 +16,7 @@ router.post('/search', async (req, res, next) => {
     const rows = await db.query(`select * from post where postName ilike '%${req.body.queryName}%'`)
     res.statusCode = 200;
     res.setHeader('Content-Type', 'application/json')
-    res.json(rows.rows)
+    res.json(caseSensitiveRows(rows.rows))
   } catch (err) {
     return next(err)
   }
@@ -23,10 +27,9 @@ router.post('/search', async (req, res, next) => {
 router.get('/', async (req, res, next) => {
   try {
     const rows = await db.query('SELECT * FROM posts')
-    console.log(rows)
     res.statusCode = 200;
     res.setHeader('Content-Type', 'application/json')
-    res.json(rows.rows)
+    res.json(caseSensitiveRows(rows.rows))
   } catch(err) {
     return next(err)
   }

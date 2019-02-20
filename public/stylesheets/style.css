@@ -40,7 +40,7 @@ h1 {
 
 .posts li {
   display: grid;
-  grid-auto-flow: column;
+  /* grid-auto-flow: column; */
   grid-template-columns: 1fr 4fr auto;
   grid-gap: 1rem;
   padding: .25rem;
@@ -54,8 +54,19 @@ h1 {
   display: flex;
   justify-content: end;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .new-post form>*+* {
   margin-left: .5rem
 }
+
+@media screen and (max-width: 768px) {
+  .posts li {
+    grid-template-columns: unset;
+    grid-gap: 0.25rem;
+  }
+  .posts li button {
+    justify-self: end;
+  }
+} 

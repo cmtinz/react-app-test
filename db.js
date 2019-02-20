@@ -3,12 +3,10 @@ const { Pool } = require('pg')
 const pool = new Pool({
   host: "localhost",
   port: "5432",
-  database: process.env.POSTGRES_DB,
-  user: process.env.POSTGRES_USER,
-  password: process.env.POSTGRES_PASSWORD
+  database: "npr-db",
+  user: "npr-db-usr",
+  password: "npr-db-password"
 })
-
-console.log(pool);
 
 module.exports = {
   query: (text, params, callback) => {
