@@ -1,9 +1,42 @@
 class App extends React.Component{
+
+    constructor(props) {
+        super(props);
+        this.state = {posts: []}
+        this.onPostDelete = this.onPostDelete.bind(this);
+    }
+
+    componentDidMount() {
+        fetch('/posts')
+          .then(response => response.json())
+          .then(response => this.setState({posts: response}));
+    }
+
+    onPostDelete(postId) {
+        fetch('/posts/' + postId, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => {
+            if (response.status === 200) {
+                this.setState({
+                    posts: this.state.posts.filter(post => post.postId != postId)
+                })
+                console.log("Eliminado el post " + postId);
+            } else {
+
+            }
+        })
+        .catch(error => console.log("Error: " + error))
+    }
+
     render() {
         return (
             <div className="app">
                 <Search/>
-                <PostList/>
+                <PostList posts={this.state.posts} onPostDelete={this.onPostDelete}/>
                 <NewPost/>
             </div>
         )
@@ -24,31 +57,39 @@ class Search extends React.Component{
 }
 
 class PostList extends React.Component{
-    constructor(props) {
+    constructor (props) {
         super(props);
-        this.state = {data: []}
     }
+
     render() {
         return (
             <ul className="posts">
-                {this.state.data.map(data => <Post key={data.postId} name={data.postName} description={data.postDescription}/>)}
+                {this.props.posts
+                    .map(post => <Post key={post.postId}  postId={post.postId} name={post.postName} description={post.postDescription} onPostDelete={this.props.onPostDelete}/>)
+                }
             </ul>
         )
     }
-    componentDidMount() {
-        fetch('/posts')
-          .then(response => response.json())
-          .then(response => this.setState({data: response}));
-      }
+
 }
 
 class Post extends React.Component{
+    
+    constructor(props) {
+        super(props);
+        this.onPostDelete = this.onPostDelete.bind(this);
+    }
+
+    onPostDelete(event) {
+        this.props.onPostDelete(this.props.postId)
+    }
+
     render() {
         return (
-            <li key={this.props.post_id}>
+            <li>
                 <span>{this.props.name}</span>
                 <span>{this.props.description}</span>
-                <button >Eliminar</button>
+                <button onClick={this.onPostDelete}>Eliminar</button>
             </li>
         )
     }

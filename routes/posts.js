@@ -58,11 +58,10 @@ router.post('/', async (req, res, next) => {
 /* Eliminar posts */
 router.delete('/:id', async (req, res, next) => {
   try {
-    const rows = await db.query(`delete from posts where postId = ${req.params.id}`)
+    const rows = await db.query(`delete from posts where postId = ${req.params.id} RETURNING *`)
     res.statusCode = 200;
     res.setHeader('Content-Type', 'application/json')
-    res.json(rows)
-    console.log(rows)
+    res.json({"postId": rows.rows[0].postid})
   } catch(err) {
     return next(err)
   }
