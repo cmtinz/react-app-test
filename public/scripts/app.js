@@ -46,17 +46,21 @@ class App extends React.Component{
             })
         })
         .then(response => response.json())
-        .then(response => {
-            console.log(response)
-            this.setState({
-                posts: this.state.posts.push({
-                    "postId": response.postId,
-                    "postName": postName,
-                    "postDescription": postDescription
-                })
+        .then(jsonResponse => {
+            const newPostList = this.state.posts;
+            newPostList.push({
+                "postId": jsonResponse.postId,
+                "postName": postName,
+                "postDescription": postDescription
             })
-            console.log(`Nuevo post creado. Nombre: ${postName}}. Descripción: ${postDescription}`)
+            this.setState({
+                posts: newPostList
+            })
+            console.log(`Nuevo post creado. Nombre: ${postName}. Descripción: ${postDescription}`)
             return true;
+        })
+        .catch(function(error) {
+            console.log('Error: ' + error.message);
         })
     }
 
