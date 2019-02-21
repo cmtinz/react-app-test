@@ -55,14 +55,49 @@ class Post extends React.Component{
 }
 
 class NewPost extends React.Component{
+    constructor(props) {
+        super(props);
+        this.state = {
+            name: '',
+            description: ''
+        };
+        this.newPostSubmit = this.newPostSubmit.bind(this);
+        this.changeName = this.changeName.bind(this);
+        this.changeDescription = this.changeDescription.bind(this);
+    }
+
+    newPostSubmit(event) {
+        fetch('/posts/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                'postName': this.state.name,
+                'postDescription': this.state.description
+            })
+        })
+        
+        console.log(`Nuevo post creado. Nombre: ${this.state.name}. Descripción: ${this.state.description}`)
+        event.preventDefault();
+    }
+
+    changeName(event) {
+        this.setState({name: event.target.value});
+    }
+    
+    changeDescription(event) {
+        this.setState({description: event.target.value});
+    }
+
     render() {
         return (
             <div className="new-post">
-                <form action="">
+                <form action="" onSubmit={this.newPostSubmit}>
                     <label htmlFor="new-name">Nombre</label>
-                    <input type="text" name="name" placeholder="Nombre" id="new-name"/>
+                    <input type="text" name="name" placeholder="Nombre" id="new-name" value={this.state.name} onChange={this.changeName}/>
                     <label htmlFor="new-description">Descripción</label>
-                    <input type="text" name="description" placeholder="Descripción" id="new-description"/>
+                    <input type="text" name="description" placeholder="Descripción" id="new-description" value={this.state.description} onChange={this.changeDescription}/>
                     <input type="submit" value="Crear"/>
                 </form>
             </div>

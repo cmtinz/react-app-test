@@ -10,6 +10,10 @@
             "name": "Attach",
             "port": 9229,
             "address": "localhost",
+            "skipFiles": [
+                "${workspaceRoot}/node_modules/**/*.js",
+                "<node_internals>/**/*.js"
+            ]
         }
     ]
 }

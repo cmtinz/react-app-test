@@ -42,11 +42,14 @@ router.post('/', async (req, res, next) => {
   try {
     const postName = req.body.postName
     const postDescription = req.body.postDescription
-    const rows = await db.query(`insert into posts (postId, postName, postDescription) values (default, '${postName}', '${postDescription}')`)
+    const rows = await db.query(`insert into posts (postId, postName, postDescription) values (default, '${postName}', '${postDescription}') RETURNING *`)
     res.statusCode = 200;
     res.setHeader('Content-Type', 'application/json')
-    res.json(rows)
-    console.log(rows)
+    res.json({
+      "postId": rows.rows[0].postid,
+      "postName": rows.rows[0].postname,
+      "postDescription": rows.rows[0].description
+    })
   } catch(err) {
     return next(err)
   }

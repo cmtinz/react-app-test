@@ -50,6 +50,11 @@ h1 {
   background: lightgrey;
 }
 
+.new-post {
+  border-top: 1px solid lightgray;
+  padding-top: .25rem;
+}
+
 .new-post form {
   display: flex;
   justify-content: end;
