@@ -4,6 +4,8 @@ class App extends React.Component{
         super(props);
         this.state = {posts: []}
         this.onPostDelete = this.onPostDelete.bind(this);
+        this.onPostSubmit = this.onPostSubmit.bind(this);
+        this.onSeach = this.onSeach.bind(this);
     }
 
     componentDidMount() {
@@ -32,23 +34,68 @@ class App extends React.Component{
         .catch(error => console.log("Error: " + error))
     }
 
+    onPostSubmit(postName, postDescription) {
+        fetch('/posts/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                'postName': postName,
+                'postDescription': postDescription
+            })
+        })
+        .then(response => response.json())
+        .then(response => {
+            console.log(response)
+            this.setState({
+                posts: this.state.posts.push({
+                    "postId": response.postId,
+                    "postName": postName,
+                    "postDescription": postDescription
+                })
+            })
+            console.log(`Nuevo post creado. Nombre: ${postName}}. Descripción: ${postDescription}`)
+        })
+    }
+
+    onSeach(query) {
+        console.log("Buscando: " + query);
+    }
+
     render() {
         return (
             <div className="app">
-                <Search/>
+                <Search onSeach={this.onSeach}/>
                 <PostList posts={this.state.posts} onPostDelete={this.onPostDelete}/>
-                <NewPost/>
+                <NewPost onPostSubmit={this.onPostSubmit}/>
             </div>
         )
     }
 }
 
 class Search extends React.Component{
+    constructor(props) {
+        super(props);
+        this.state = {query: ''};
+        this.onChangeQuery = this.onChangeQuery.bind(this);
+        this.onSubmit = this.onSubmit.bind(this);
+    }
+
+    onChangeQuery(event) {
+        this.setState({query: event.target.value});
+    }
+
+    onSubmit(event) {
+        this.props.onSeach(this.state.query)
+        event.preventDefault();
+    }
+
     render() {
         return (
             <div className="search">
-                <form action="">
-                    <input type="text" name="nameQuery" placeholder="Buscar por nombre"/>
+                <form /* onSubmit={this.onSubmit} */ >
+                    <input type="text" name="nameQuery" placeholder="Buscar por nombre" onChange={this.onChangeQuery} value={this.state.query}/>
                     <input type="submit" value="Buscar"/>
                 </form>
             </div>
@@ -108,18 +155,7 @@ class NewPost extends React.Component{
     }
 
     newPostSubmit(event) {
-        fetch('/posts/', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                'postName': this.state.name,
-                'postDescription': this.state.description
-            })
-        })
-        
-        console.log(`Nuevo post creado. Nombre: ${this.state.name}. Descripción: ${this.state.description}`)
+        this.props.onPostSubmit(this.state.name, this.state.description)
         event.preventDefault();
     }
 
