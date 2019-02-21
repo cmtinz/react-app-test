@@ -56,6 +56,7 @@ class App extends React.Component{
                 })
             })
             console.log(`Nuevo post creado. Nombre: ${postName}}. Descripción: ${postDescription}`)
+            return true;
         })
     }
 
@@ -166,7 +167,10 @@ class NewPost extends React.Component{
     }
 
     newPostSubmit(event) {
-        this.props.onPostSubmit(this.state.name, this.state.description)
+        if (this.props.onPostSubmit(this.state.name, this.state.description)) {
+            this.state.name = "";
+            this.state.description = "";
+        }
         event.preventDefault();
     }
 
