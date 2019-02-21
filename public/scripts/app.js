@@ -61,6 +61,17 @@ class App extends React.Component{
 
     onSeach(query) {
         console.log("Buscando: " + query);
+        fetch('/posts/search', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                'query': query
+            })
+        })
+          .then(response => response.json())
+          .then(response => this.setState({posts: response}));
     }
 
     render() {
@@ -94,7 +105,7 @@ class Search extends React.Component{
     render() {
         return (
             <div className="search">
-                <form /* onSubmit={this.onSubmit} */ >
+                <form onSubmit={this.onSubmit} >
                     <input type="text" name="nameQuery" placeholder="Buscar por nombre" onChange={this.onChangeQuery} value={this.state.query}/>
                     <input type="submit" value="Buscar"/>
                 </form>

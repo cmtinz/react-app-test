@@ -12,8 +12,8 @@ function caseSensitiveRows(row) {
 /* Filtrar posts por nombre localmente */
 router.post('/search', async (req, res, next) => {
   try {
-    const queryName = req.body.queryName
-    const rows = await db.query(`select * from post where postName ilike '%${req.body.queryName}%'`)
+    const rows = await db.query(`select * from posts where postName ilike '%${req.body.query}%'`)
+    console.log(rows);
     res.statusCode = 200;
     res.setHeader('Content-Type', 'application/json')
     res.json(caseSensitiveRows(rows.rows))
