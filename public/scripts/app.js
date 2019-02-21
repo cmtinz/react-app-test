@@ -2,7 +2,7 @@ class App extends React.Component{
 
     constructor(props) {
         super(props);
-        this.state = {posts: []}
+        this.state = {posts: [], query: ''}
         this.onPostDelete = this.onPostDelete.bind(this);
         this.onPostSubmit = this.onPostSubmit.bind(this);
         this.onSeach = this.onSeach.bind(this);
@@ -66,7 +66,9 @@ class App extends React.Component{
 
     onSeach(query) {
         console.log("Buscando: " + query);
-        fetch('/posts/search', {
+        this.setState({query: query});
+        
+        /* fetch('/posts/search', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -76,14 +78,14 @@ class App extends React.Component{
             })
         })
           .then(response => response.json())
-          .then(response => this.setState({posts: response}));
+          .then(response => this.setState({posts: response})); */
     }
 
     render() {
         return (
             <div className="app">
                 <Search onSeach={this.onSeach}/>
-                <PostList posts={this.state.posts} onPostDelete={this.onPostDelete}/>
+                <PostList posts={this.state.posts} onPostDelete={this.onPostDelete} query={this.state.query}/>
                 <NewPost onPostSubmit={this.onPostSubmit}/>
             </div>
         )
@@ -128,6 +130,10 @@ class PostList extends React.Component{
         return (
             <ul className="posts">
                 {this.props.posts
+                    .filter(post => {
+                        if (this.props.query === "") return true
+                        return !post.postName.search(this.props.query);
+                    })
                     .map(post => <Post key={post.postId}  postId={post.postId} name={post.postName} description={post.postDescription} onPostDelete={this.props.onPostDelete}/>)
                 }
             </ul>
