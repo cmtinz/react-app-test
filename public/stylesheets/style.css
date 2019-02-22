@@ -57,7 +57,7 @@ h1 {
 
 .new-post form {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: center;
   flex-wrap: wrap;
 }
@@ -72,6 +72,6 @@ h1 {
     grid-gap: 0.25rem;
   }
   .posts li button {
-    justify-self: end;
+    justify-self: flex-end;
   }
 } 

@@ -50,8 +50,8 @@ class App extends React.Component{
             const newPostList = this.state.posts;
             newPostList.push({
                 "postId": jsonResponse.postId,
-                "postName": postName,
-                "postDescription": postDescription
+                "postName": jsonResponse.postName,
+                "postDescription": jsonResponse.postDescription
             })
             this.setState({
                 posts: newPostList
@@ -59,26 +59,12 @@ class App extends React.Component{
             console.log(`Nuevo post creado. Nombre: ${postName}. Descripción: ${postDescription}`)
             return true;
         })
-        .catch(function(error) {
-            console.log('Error: ' + error.message);
-        })
+        .catch(error => console.log("Error: " + error))
     }
 
     onSeach(query) {
         console.log("Buscando: " + query);
         this.setState({query: query});
-        
-        /* fetch('/posts/search', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                'query': query
-            })
-        })
-          .then(response => response.json())
-          .then(response => this.setState({posts: response})); */
     }
 
     render() {

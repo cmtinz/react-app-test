@@ -9,21 +9,7 @@ function caseSensitiveRows(row) {
   return row.map(row => {return {postId: row.postid, postName: row.postname, postDescription: row.postdescription}})
 }
 
-/* Filtrar posts por nombre localmente */
-router.post('/search', async (req, res, next) => {
-  try {
-    const rows = await db.query(`select * from posts where postName ilike '%${req.body.query}%'`)
-    console.log(rows);
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'application/json')
-    res.json(caseSensitiveRows(rows.rows))
-  } catch (err) {
-    return next(err)
-  }
-});
-
 /* Listar posts */
-
 router.get('/', async (req, res, next) => {
   try {
     const rows = await db.query('SELECT * FROM posts')
@@ -37,7 +23,6 @@ router.get('/', async (req, res, next) => {
 
 
 /* Insertar posts */
-// insert into posts (postId, postName, postdescription) values (default, 'Post 2', 'Descripción');
 router.post('/', async (req, res, next) => {
   try {
     const postName = req.body.postName
@@ -45,7 +30,11 @@ router.post('/', async (req, res, next) => {
     const rows = await db.query(`insert into posts (postId, postName, postDescription) values (default, '${postName}', '${postDescription}') RETURNING *`)
     res.statusCode = 200;
     res.setHeader('Content-Type', 'application/json')
-    res.json({"postId": rows.rows[0].postid})
+    res.json({
+      "postId": rows.rows[0].postid,
+      "postName": rows.rows[0].postname,
+      "postDescription": rows.rows[0].postDescription,
+    })
   } catch(err) {
     return next(err)
   }
@@ -57,7 +46,11 @@ router.delete('/:id', async (req, res, next) => {
     const rows = await db.query(`delete from posts where postId = ${req.params.id} RETURNING *`)
     res.statusCode = 200;
     res.setHeader('Content-Type', 'application/json')
-    res.json({"postId": rows.rows[0].postid})
+    res.json({
+      "postId": rows.rows[0].postid,
+      "postName": rows.rows[0].postname,
+      "postDescription": rows.rows[0].postDescription,
+    })
   } catch(err) {
     return next(err)
   }
